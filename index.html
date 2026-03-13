@@ -5,213 +5,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Video Cinema (Watch Free Anime)</title>
 
-<!-- Google site verification -->
 <meta name="google-site-verification" content="84rD-sdziL2gxF5r8acHk6GJ4p5PF-5W3ukaTyZIQn4" />
-
-<!-- Open Graph and application-name -->
 <meta property="og:site_name" content="Video Cinema">
 <meta name="application-name" content="Video Cinema">
 
 <style>
-body { 
-  margin:0; 
-  background:#000000; 
-  font-family:Arial, sans-serif; 
-  color:#e0e0e0; 
-}
+body { margin:0; background:#000000; font-family:Arial, sans-serif; color:#e0e0e0; }
 header { 
   background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('https://i.ibb.co/cp56rT0/IMG-20260214-185623.jpg') center/cover no-repeat; 
-  padding:16px 20px; 
-  display:flex; 
-  justify-content:space-between; 
-  align-items:center; 
-  border-bottom:2px solid #E50914; 
+  padding:16px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #E50914; 
 }
 .logo { font-size:28px; font-weight:bold; color:#E50914; letter-spacing:2px; text-shadow:1px 1px 4px #000; }
-nav a { color:#e0e0e0; margin-left:18px; text-decoration:none; font-size:15px; }
+nav a { color:#e0e0e0; margin-left:18px; text-decoration:none; font-size:15px; cursor:pointer; }
 nav a:hover { color:#E50914; }
 .video-section { padding:20px; text-align:center; background:#000000; position:relative; }
 #videoFrame { width:100%; max-width:960px; height:540px; border:none; display:none; }
 #loadingMessage { 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-  color: #ffcc00;
-  font-weight: bold;
-  text-align: center;
-  background: rgba(0,0,0,0.7);
-  padding: 20px 40px;
-  border-radius: 12px;
-  z-index: 10;
-  min-width: 300px;
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); 
+  font-size:20px; color:#ffcc00; font-weight:bold; text-align:center; 
+  background:rgba(0,0,0,0.7); padding:20px 40px; border-radius:12px; 
+  z-index:10; min-width:300px; 
 }
-.loading-notice, .double-click-notice, .player-notice, .next-suggestion {
-  margin: 12px auto;
-  padding: 12px 16px;
-  background: #111111;
-  border: 1px solid #222;
-  border-radius: 8px;
-  max-width: 960px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #e0e0e0;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+.loading-notice, .double-click-notice, .player-notice, .next-suggestion { 
+  margin:12px auto; padding:12px 16px; background:#111111; border:1px solid #222; 
+  border-radius:8px; max-width:960px; font-size:15px; font-weight:600; color:#e0e0e0; 
+  text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.8); 
 }
-.loading-notice { border-color: #444; color: #ffecb3; }
-.double-click-notice { border-color: #224466; color: #bbdefb; }
-.player-notice { border-color: #440000; color: #ffcccc; }
-.next-suggestion { border-color: #550000; color: #ffcccc; }
-.next-btn {
-  margin-top: 10px;
-  padding: 10px 24px;
-  background: #E50914;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-.next-btn:hover { background: #c40710; }
+.next-btn { margin-top:10px; padding:10px 24px; background:#E50914; color:white; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
+.next-btn:hover { background:#c40710; }
 footer { background:#000000; text-align:center; padding:15px; margin-top:30px; font-size:14px; border-top:1px solid #222; color:#888; }
 
-/* Series card style */
-.series-card {
-  background: linear-gradient(to bottom, #1a0000, #000000);
-  padding: 25px;
-  border: 1px solid #440000;
-  border-radius: 10px;
-  margin: 25px auto;
-  max-width: 960px;
-  text-align: center;
-}
-.series-card h2 {
-  color: #ff4444;
-  font-size: 28px;
-  margin-bottom: 15px;
-  text-shadow: 1px 1px 5px #000;
-}
-.series-card img {
-  width: 100%;
-  max-width: 700px;
-  border-radius: 10px;
-  margin: 20px 0;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.9);
-}
-.series-card p, .series-card ul {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #ddd;
-}
-.series-card ul {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-  max-width: 800px;
-  margin: 20px auto;
-}
-.series-card li {
-  margin: 10px 0;
-  font-size: 15px;
-}
-.watch-button {
-  display: inline-block;
-  background: #0066cc;
-  color: white;
-  padding: 14px 40px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 30px;
-  text-decoration: none;
-  margin: 15px 10px;
-  transition: background 0.3s;
-  cursor: pointer;
-}
-.watch-button:hover {
-  background: #0055aa;
-}
-.see-more-btn {
-  background: transparent;
-  border: 1px solid #0066cc;
-  color: #bbdefb;
-  padding: 8px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-top: 10px;
-}
-.see-more-btn:hover {
-  background: #001122;
-}
-.short-desc, .full-desc {
-  text-align: left;
-  max-width: 800px;
-  margin: 20px auto;
-  font-size: 15px;
-  line-height: 1.7;
-}
-.full-desc { display: none; }
-.episode-list-container {
-  background: #111;
-  border-radius: 8px;
-  padding: 20px;
-  margin-top: 30px;
-  display: none;
-}
-.episode-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.episode-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 20px;
-  border-bottom: 1px solid #222;
-  cursor: pointer;
-  transition: 0.2s;
-}
-.episode-item:hover {
-  background: #1a0000;
-}
-.ep-num {
-  font-size: 20px;
-  font-weight: bold;
-  color: #00b0ff;
-  background: #001122;
-  padding: 6px 12px;
-  border-radius: 6px;
-  margin-right: 15px;
-  min-width: 60px;
-  text-align: center;
-}
-.ep-title {
-  font-size: 17px;
-  font-weight: bold;
-  flex: 1;
-  color: #e0e0e0;
-}
-.ep-arrow {
-  font-size: 24px;
-  color: #00b0ff;
-  font-weight: bold;
-}
+.series-card { background:linear-gradient(to bottom,#1a0000,#000000); padding:25px; border:1px solid #440000; border-radius:10px; margin:25px auto; max-width:960px; text-align:center; }
+.series-card h2 { color:#ff4444; font-size:28px; margin-bottom:15px; text-shadow:1px 1px 5px #000; }
+.series-card img { width:100%; max-width:700px; border-radius:10px; margin:20px 0; box-shadow:0 6px 20px rgba(0,0,0,0.9); }
+.series-card p, .series-card ul { font-size:16px; line-height:1.6; color:#ddd; }
+.series-card ul { list-style:none; padding:0; text-align:left; max-width:800px; margin:20px auto; }
+.series-card li { margin:10px 0; font-size:15px; }
+.watch-button { display:inline-block; background:#0066cc; color:white; padding:14px 40px; font-size:18px; font-weight:bold; border-radius:30px; cursor:pointer; margin:15px 10px; transition:background 0.3s; }
+.watch-button:hover { background:#0055aa; }
+.see-more-btn { background:transparent; border:1px solid #0066cc; color:#bbdefb; padding:8px 20px; border-radius:20px; cursor:pointer; font-size:14px; margin-top:10px; }
+.see-more-btn:hover { background:#001122; }
+.short-desc, .full-desc { text-align:left; max-width:800px; margin:20px auto; font-size:15px; line-height:1.7; }
+.full-desc { display:none; }
+.episode-list-container { background:#111; border-radius:8px; padding:20px; margin-top:30px; display:none; }
+.episode-list { list-style:none; padding:0; margin:0; }
+.episode-item { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid #222; cursor:pointer; transition:0.2s; }
+.episode-item:hover { background:#1a0000; }
+.ep-num { font-size:20px; font-weight:bold; color:#00b0ff; background:#001122; padding:6px 12px; border-radius:6px; margin-right:15px; min-width:60px; text-align:center; }
+.ep-title { font-size:17px; font-weight:bold; flex:1; color:#e0e0e0; }
+.ep-arrow { font-size:24px; color:#00b0ff; font-weight:bold; }
+
+/* Filtering */
+.category { display:none; }
+.category.active { display:block; }
 </style>
 
 <script>
-// All Dr. Stone episodes (complete list you provided earlier)
+// === ALL EPISODE DATA ===
+const spyFamilyEpisodes = [
+  { num:1, title:'Episode 1', url:'https://archive.org/embed/s-1-e-01-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:2, title:'Episode 2', url:'https://archive.org/embed/s-1-e-02-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:3, title:'Episode 3', url:'https://archive.org/embed/s-1-e-03-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:4, title:'Episode 4', url:'https://archive.org/embed/s-1-e-04-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:5, title:'Episode 5', url:'https://archive.org/embed/s-1-e-05-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:6, title:'Episode 6', url:'https://archive.org/embed/s-1-e-06-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:7, title:'Episode 7', url:'https://archive.org/embed/s-1-e-07-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:8, title:'Episode 8', url:'https://archive.org/embed/s-1-e-08-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:9, title:'Episode 9', url:'https://archive.org/embed/s-1-e-09-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:10, title:'Episode 10', url:'https://archive.org/embed/s-1-e-010-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:11, title:'Episode 11', url:'https://archive.org/embed/s-1-e-011-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:12, title:'Episode 12', url:'https://archive.org/embed/s-1-e-012-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:13, title:'Episode 13', url:'https://archive.org/embed/s-1-e-013-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:14, title:'Episode 14', url:'https://archive.org/embed/s-1-e-014-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:15, title:'Episode 15', url:'https://archive.org/embed/s-1-e-015-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:16, title:'Episode 16', url:'https://archive.org/embed/s-1-e-016-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:17, title:'Episode 17', url:'https://archive.org/embed/s-1-e-017-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:18, title:'Episode 18', url:'https://archive.org/embed/s-1-e-018-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:19, title:'Episode 19', url:'https://archive.org/embed/s-1-e-019-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:20, title:'Episode 20', url:'https://archive.org/embed/s-1-e-020-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:21, title:'Episode 21', url:'https://archive.org/embed/s-1-e-021-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:22, title:'Episode 22', url:'https://archive.org/embed/s-1-e-022-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:23, title:'Episode 23', url:'https://archive.org/embed/s-1-e-023-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:24, title:'Episode 24', url:'https://archive.org/embed/s-1-e-024-720p-spy-x-family-hindi-dubbed-4u.-in' },
+  { num:25, title:'Episode 25', url:'https://archive.org/embed/s-1-e-025-720p-spy-x-family-hindi-dubbed-4u.-in' }
+];
+
 const drStoneEpisodes = [
-  { num:1,  title:'Episode 1: Stone World', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-01-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p_202602' },
-  { num:2,  title:'Episode 2: King of the Stone World', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-02-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p-1' },
-  { num:3,  title:'Episode 3: Weapons of Science', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-03-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-720p' },
-  { num:4,  title:'Episode 4: Fire the Smoke Signal', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-04-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p' },
-  { num:5,  title:'Episode 5: Stone World the Beginning', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-05-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-720p' },
-  { num:6,  title:'Episode 6: The Shape of the Future', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-06-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p' },
-  { num:7,  title:'Episode 7: Thousands of Years of Boredom', url:'https://archive.org/embed/video-cinema-s-1-e-07-dr.-stone-720p-hindi-dubbed-4u.in' },
-  { num:9,  title:'Episode 9: A Flimsy Alliance', url:'https://archive.org/embed/video-cinema-s-1-e-09-dr.-stone-720p-hindi-dubbed-4u.in' },
+  { num:1, title:'Episode 1: Stone World', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-01-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p_202602' },
+  { num:2, title:'Episode 2: King of the Stone World', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-02-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p-1' },
+  { num:3, title:'Episode 3: Weapons of Science', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-03-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-720p' },
+  { num:4, title:'Episode 4: Fire the Smoke Signal', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-04-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p' },
+  { num:5, title:'Episode 5: Stone World the Beginning', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-05-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-720p' },
+  { num:6, title:'Episode 6: The Shape of the Future', url:'https://archive.org/embed/video-cinema-dr.-stone-s-01-e-06-1080p-x-265-10bit-blu-ray-multi-audio-esub.mkv-360p' },
+  { num:7, title:'Episode 7: Thousands of Years of Boredom', url:'https://archive.org/embed/video-cinema-s-1-e-07-dr.-stone-720p-hindi-dubbed-4u.in' },
+  { num:9, title:'Episode 9: A Flimsy Alliance', url:'https://archive.org/embed/video-cinema-s-1-e-09-dr.-stone-720p-hindi-dubbed-4u.in' },
   { num:11, title:'Episode 11: The Kingdom of Science is Born', url:'https://archive.org/embed/video-cinema-s-1-e-011-dr.-stone-720p-hindi-dubbed-4u.in_202602' },
   { num:12, title:'Episode 12: The Miracle Cave', url:'https://archive.org/embed/video-cinema-s-1-e-012-dr.-stone-720p-hindi-dubbed-4u.in_202602' },
   { num:13, title:'Episode 13: Masked Warrior', url:'https://archive.org/embed/video-cinema-s-1-e-013-dr-stone-720p-hindi-dubbed-4u.in' },
@@ -219,33 +106,31 @@ const drStoneEpisodes = [
   { num:'22-24', title:'Episodes 22–24', url:'https://archive.org/embed/video-cinema-s-1-e-023-dr-stone-720p-hindi-dubbed-4u.in' }
 ];
 
-// All Tokyo Ghoul Season 1 episodes (complete list)
 const tokyoGhoulEpisodes = [
-  { num:1,  title:'Episode 1', url:'https://archive.org/embed/video-cinema-s-1-e-06-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
-  { num:2,  title:'Episode 2', url:'https://archive.org/embed/video-cinema-s-1-e-02-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
-  { num:3,  title:'Episode 3', url:'https://archive.org/embed/video-cinema-s-1-e-03-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
-  { num:4,  title:'Episode 4', url:'https://archive.org/embed/video-cinema-s-1-e-04-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
-  { num:5,  title:'Episode 5', url:'https://archive.org/embed/video-cinema-s-1-e-05-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
-  { num:6,  title:'Episode 6', url:'https://archive.org/embed/video-cinema-s-1-e-06-720p-tokyo-ghoul-hindi-dubbed-4u.-in_202602' },
-  { num:7,  title:'Episode 7', url:'https://archive.org/embed/s-1-e-07-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
-  { num:8,  title:'Episode 8', url:'https://archive.org/embed/s-1-e-08-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
-  { num:9,  title:'Episode 9', url:'https://archive.org/embed/s-1-e-09-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
+  { num:1, title:'Episode 1', url:'https://archive.org/embed/video-cinema-s-1-e-06-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
+  { num:2, title:'Episode 2', url:'https://archive.org/embed/video-cinema-s-1-e-02-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
+  { num:3, title:'Episode 3', url:'https://archive.org/embed/video-cinema-s-1-e-03-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
+  { num:4, title:'Episode 4', url:'https://archive.org/embed/video-cinema-s-1-e-04-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
+  { num:5, title:'Episode 5', url:'https://archive.org/embed/video-cinema-s-1-e-05-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
+  { num:6, title:'Episode 6', url:'https://archive.org/embed/video-cinema-s-1-e-06-720p-tokyo-ghoul-hindi-dubbed-4u.-in_202602' },
+  { num:7, title:'Episode 7', url:'https://archive.org/embed/s-1-e-07-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
+  { num:8, title:'Episode 8', url:'https://archive.org/embed/s-1-e-08-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
+  { num:9, title:'Episode 9', url:'https://archive.org/embed/s-1-e-09-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
   { num:10, title:'Episode 10', url:'https://archive.org/embed/s-1-e-010-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
   { num:11, title:'Episode 11', url:'https://archive.org/embed/s-1-e-011-720p-tokyo-ghoul-hindi-dubbed-4u.-in' },
   { num:12, title:'Episode 12', url:'https://archive.org/embed/s-1-e-012-720p-tokyo-ghoul-hindi-dubbed-4u.-in' }
 ];
 
-// All Reborn to Master the Blade episodes (complete list)
 const rebornBladeEpisodes = [
-  { num:1,  title:'Episode 1', url:'https://archive.org/embed/s-1-e-01-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
-  { num:2,  title:'Episode 2', url:'https://archive.org/embed/s-1-e-02-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
-  { num:3,  title:'Episode 3', url:'https://archive.org/embed/s-1-e-03-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
-  { num:4,  title:'Episode 4', url:'https://archive.org/embed/s-1-e-04-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
-  { num:5,  title:'Episode 5', url:'https://archive.org/embed/s-1-e-05-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
-  { num:6,  title:'Episode 6', url:'https://archive.org/embed/s-1-e-06-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
-  { num:7,  title:'Episode 7', url:'https://archive.org/embed/s-1-e-07-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
-  { num:8,  title:'Episode 8', url:'https://archive.org/embed/s-1-e-08-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
-  { num:9,  title:'Episode 9', url:'https://archive.org/embed/video-cinema-s-1-e-09-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
+  { num:1, title:'Episode 1', url:'https://archive.org/embed/s-1-e-01-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
+  { num:2, title:'Episode 2', url:'https://archive.org/embed/s-1-e-02-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
+  { num:3, title:'Episode 3', url:'https://archive.org/embed/s-1-e-03-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
+  { num:4, title:'Episode 4', url:'https://archive.org/embed/s-1-e-04-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
+  { num:5, title:'Episode 5', url:'https://archive.org/embed/s-1-e-05-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
+  { num:6, title:'Episode 6', url:'https://archive.org/embed/s-1-e-06-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
+  { num:7, title:'Episode 7', url:'https://archive.org/embed/s-1-e-07-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
+  { num:8, title:'Episode 8', url:'https://archive.org/embed/s-1-e-08-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
+  { num:9, title:'Episode 9', url:'https://archive.org/embed/video-cinema-s-1-e-09-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
   { num:10, title:'Episode 10', url:'https://archive.org/embed/video-cinema-s-1-e-010-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
   { num:11, title:'Episode 11', url:'https://archive.org/embed/video-cinema-s-1-e-011-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' },
   { num:12, title:'Episode 12', url:'https://archive.org/embed/video-cinema-s-1-e-012-720p-reborn-to-master-the-blade-hindi-dubbed-4u.-in' }
@@ -255,6 +140,20 @@ let currentEpIndex = -1;
 let isInVideoMode = false;
 let currentSeries = null;
 
+// Category filter
+function showCategory(category) {
+  document.querySelectorAll('.category').forEach(el => el.classList.remove('active'));
+
+  if (category === 'home') {
+    document.querySelectorAll('.category').forEach(el => el.classList.add('active'));
+  } else {
+    document.querySelectorAll(`.category.${category}`).forEach(el => el.classList.add('active'));
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Series episode list toggle
 function showSeriesEpisodes(series) {
   currentSeries = series;
   const container = document.getElementById(series + 'Episodes');
@@ -262,6 +161,7 @@ function showSeriesEpisodes(series) {
   window.scrollTo({ top: container.offsetTop - 80, behavior: 'smooth' });
 }
 
+// Player functions
 function showEpisode(url, title, epNum = null) {
   document.getElementById("home").style.display = "none";
   document.getElementById("videoSection").style.display = "block";
@@ -285,17 +185,24 @@ function showEpisode(url, title, epNum = null) {
   isInVideoMode = true;
   history.pushState({ page: 'video' }, '', '#watching');
 
-  const eps = currentSeries === 'drstone' ? drStoneEpisodes : 
-              currentSeries === 'tokyoghoul' ? tokyoGhoulEpisodes : rebornBladeEpisodes;
+  let eps;
+  if      (currentSeries === 'spyfamily') eps = spyFamilyEpisodes;
+  else if (currentSeries === 'drstone')   eps = drStoneEpisodes;
+  else if (currentSeries === 'tokyoghoul') eps = tokyoGhoulEpisodes;
+  else if (currentSeries === 'rebornblade') eps = rebornBladeEpisodes;
+
   currentEpIndex = epNum !== null ? eps.findIndex(e => e.num === epNum) : eps.findIndex(e => e.title === title);
   setTimeout(showNextSuggestion, 23 * 60 * 1000);
 }
 
 function showNextSuggestion() {
   const sec = document.getElementById("nextEpisodeSection");
-  const eps = currentSeries === 'drstone' ? drStoneEpisodes : 
-              currentSeries === 'tokyoghoul' ? tokyoGhoulEpisodes : rebornBladeEpisodes;
-  
+  let eps;
+  if      (currentSeries === 'spyfamily') eps = spyFamilyEpisodes;
+  else if (currentSeries === 'drstone')   eps = drStoneEpisodes;
+  else if (currentSeries === 'tokyoghoul') eps = tokyoGhoulEpisodes;
+  else if (currentSeries === 'rebornblade') eps = rebornBladeEpisodes;
+
   if (currentEpIndex < 0 || currentEpIndex >= eps.length - 1) {
     sec.innerHTML = `<p style="font-size:17px; color:#ccc;">End of Season – Thanks for watching!</p>`;
   } else {
@@ -309,8 +216,12 @@ function showNextSuggestion() {
 }
 
 function playNext() {
-  const eps = currentSeries === 'drstone' ? drStoneEpisodes : 
-              currentSeries === 'tokyoghoul' ? tokyoGhoulEpisodes : rebornBladeEpisodes;
+  let eps;
+  if      (currentSeries === 'spyfamily') eps = spyFamilyEpisodes;
+  else if (currentSeries === 'drstone')   eps = drStoneEpisodes;
+  else if (currentSeries === 'tokyoghoul') eps = tokyoGhoulEpisodes;
+  else if (currentSeries === 'rebornblade') eps = rebornBladeEpisodes;
+
   if (currentEpIndex < 0 || currentEpIndex >= eps.length - 1) return;
   const next = eps[currentEpIndex + 1];
   showEpisode(next.url, next.title, next.num);
@@ -329,14 +240,14 @@ function backToHome() {
 }
 </script>
 </head>
-<body>
+<body onload="showCategory('home')">
 
 <header>
   <div class="logo">VIDEO CINEMA</div>
   <nav>
-    <a href="#" onclick="backToHome(); return false;">Home</a>
-    <a href="#">Movies</a>
-    <a href="#">Web Series</a>
+    <a onclick="showCategory('home')">Home</a>
+    <a onclick="showCategory('movies')">Movies</a>
+    <a onclick="showCategory('webseries')">Web Series</a>
     <a href="#">Anime</a>
     <a href="#">Contact</a>
   </nav>
@@ -344,10 +255,88 @@ function backToHome() {
 
 <div id="home">
 
-  <!-- Dr. Stone Season 1 -->
-  <div class="series-card">
+  <!-- Movies category -->
+  <div class="series-card category movies active">
+    <h2>Demon Slayer: Infinity Castle Arc (Movie) Hindi Dubbed</h2>
+    <img src="https://i.ibb.co/HfqyqB7z/Screenshot-2026-03-12-18-09-32-19-1c337646f29875672b5a61192b9010f9.jpg" alt="Demon Slayer Infinity Castle Poster">
+    <p>By Video Cinema / March 2026</p>
+    <h3>Movie Information</h3>
+    <ul>
+      <li><strong>Title:</strong> Demon Slayer: Infinity Castle Arc</li>
+      <li><strong>Genres:</strong> Action | Fantasy | Supernatural</li>
+      <li><strong>Quality:</strong> 1080p High Quality HDTC</li>
+      <li><strong>Audio:</strong> Hindi Dubbed</li>
+      <li><strong>Type:</strong> Movie (Final Arc)</li>
+    </ul>
+    <div class="short-desc">
+      <p>The Demon Slayer Corps enters the Infinity Castle for the ultimate battle against Muzan Kibutsuji and the Upper Moons.</p>
+    </div>
+    <button class="see-more-btn" onclick="document.getElementById('dsFull').style.display='block'; this.style.display='none';">See More</button>
+    <div id="dsFull" class="full-desc">
+      <p>Demon Slayer: Infinity Castle Arc is the climactic finale of the Demon Slayer: Kimetsu no Yaiba story. Tanjiro Kamado and the remaining Demon Slayer Corps infiltrate the ever-shifting Infinity Castle — Muzan Kibutsuji's deadly domain — to end the reign of demons forever. Joined by Zenitsu, Inosuke, Nezuko (who continues to fight her demonic instincts), and the surviving Hashira, they face the most terrifying Upper Rank demons in history. The battles are visually spectacular: breathtaking Breathing Techniques, emotional backstories, and intense choreography from ufotable. Themes of family, sacrifice, perseverance, and breaking the cycle of hatred run deep. Nezuko’s role is especially powerful as she fights to protect her brother while overcoming her demonic nature. The animation by ufotable reaches new heights: stunning visuals, fluid swordplay, breathtaking Breathing Techniques, and emotional close-ups that hit hard. The soundtrack by Go Shiina and Yuki Kajiura elevates every scene — from quiet, sorrowful moments to explosive, adrenaline-pumping battles. The Hindi dubbed version brings extra intensity and relatability for Indian audiences — the emotional dialogues and battle cries land powerfully. This is not just a fight movie — it's the culmination of Tanjiro’s journey from grieving brother to hopeful warrior who refuses to let hatred consume him. It honors every character who came before, giving proper closure to many arcs while leaving room for hope. If you love Demon Slayer, this is the chapter you’ve been waiting for — epic, emotional, visually spectacular, and deeply satisfying.</p>
+    </div>
+    <div onclick="showEpisode('https://archive.org/embed/1080p-high-quality-hdtc-demon-slayer-infinity-castle-movie-2025-hindi-dubbed-4u.-in', 'Demon Slayer: Infinity Castle Arc (Hindi Dubbed)')" class="watch-button">Watch Now</div>
+  </div>
+
+  <!-- Web Series category -->
+
+  <!-- Spy × Family – now with 25 episodes -->
+  <div class="series-card category webseries active">
+    <h2>Spy × Family Season 1 Hindi Dubbed WEB-DL Episodes</h2>
+    <img src="https://i.ibb.co/fzCGTFn9/IMG-20260312-171922.jpg" alt="Spy × Family Season 1 Poster">
+    <p>By Video Cinema / March 2026</p>
+    <h3>Series Information</h3>
+    <ul>
+      <li><strong>Title:</strong> Spy × Family Season 1</li>
+      <li><strong>Genres:</strong> Action | Comedy | Slice of Life | Spy</li>
+      <li><strong>Quality:</strong> 720p</li>
+      <li><strong>Audio:</strong> Hindi Dubbed</li>
+      <li><strong>Subtitles:</strong> English (if available)</li>
+      <li><strong>Total Episodes:</strong> 25</li>
+    </ul>
+    <div class="short-desc">
+      <p>World-class spy Twilight is tasked with starting a family to get close to a politician. He adopts telepathic Anya and marries assassin Yor — none aware of each other's secrets. Chaos and heartwarming moments follow.</p>
+    </div>
+    <button class="see-more-btn" onclick="document.getElementById('spyFull').style.display='block'; this.style.display='none';">See More</button>
+    <div id="spyFull" class="full-desc">
+      <p>Spy × Family is one of the most beloved modern anime blends of espionage thriller, wholesome family comedy, and action-packed adventure. The story centers on Agent Twilight, the greatest spy in the world, who is given Operation Strix: to create a fake family and get close to Donovan Desmond, a reclusive politician who holds the key to preventing war between Ostania and Westalis. To accomplish this, Twilight adopts a young girl named Anya — who secretly has telepathic powers — and marries Yor Forger, a beautiful office worker who is actually a deadly assassin known as the Thorn Princess. What makes the series so special is that none of the three main characters knows the true identity of the others. Twilight believes he has the perfect cover family, Anya knows everyone's secrets but keeps them to herself for fun and protection, and Yor thinks she married a kind, ordinary man who will accept her double life. This creates endless hilarious misunderstandings, adorable family moments, and high-stakes action when their worlds collide. The animation is top-tier — crisp, colorful, and full of expressive character designs. The voice acting (especially in the Hindi dubbed version) brings extra charm and energy. Every episode balances comedy (Anya's chaotic school antics and mind-reading mishaps), heartwarming bonding (the Forgers slowly becoming a real family), and thrilling spy sequences (Twilight's clever disguises and fights). The show also touches on deeper themes: the cost of living a lie, the importance of genuine connection, and how even the most dangerous people can find warmth in family. Season 1 covers the first major arc — introducing the Forgers, Anya's admission to Eden Academy, the dodgeball game, the cruise ship arc, and more — while setting up the long-term conflict with the Desmond family. Whether you're here for the laughs, the action, the romance hints between Loid and Yor, or Anya's iconic "heh?!" reactions, Spy × Family delivers on every level. It's family-friendly yet mature enough for adults, making it one of the best gateway anime of the 2020s. The Hindi dub makes it even more accessible for Indian viewers, with natural-sounding voices that capture the humor and emotion perfectly. Once you start watching, it's almost impossible to stop — each episode leaves you smiling, laughing, or on the edge of your seat. Truly a modern classic that everyone should experience.</p>
+    </div>
+    <div onclick="showSeriesEpisodes('spyfamily')" class="watch-button">Watch Episodes</div>
+    <div id="spyfamilyEpisodes" class="episode-list-container">
+      <ul class="episode-list">
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[0].url, spyFamilyEpisodes[0].title, 1)"><span class="ep-num">1</span><span class="ep-title">Episode 1</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[1].url, spyFamilyEpisodes[1].title, 2)"><span class="ep-num">2</span><span class="ep-title">Episode 2</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[2].url, spyFamilyEpisodes[2].title, 3)"><span class="ep-num">3</span><span class="ep-title">Episode 3</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[3].url, spyFamilyEpisodes[3].title, 4)"><span class="ep-num">4</span><span class="ep-title">Episode 4</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[4].url, spyFamilyEpisodes[4].title, 5)"><span class="ep-num">5</span><span class="ep-title">Episode 5</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[5].url, spyFamilyEpisodes[5].title, 6)"><span class="ep-num">6</span><span class="ep-title">Episode 6</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[6].url, spyFamilyEpisodes[6].title, 7)"><span class="ep-num">7</span><span class="ep-title">Episode 7</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[7].url, spyFamilyEpisodes[7].title, 8)"><span class="ep-num">8</span><span class="ep-title">Episode 8</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[8].url, spyFamilyEpisodes[8].title, 9)"><span class="ep-num">9</span><span class="ep-title">Episode 9</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[9].url, spyFamilyEpisodes[9].title, 10)"><span class="ep-num">10</span><span class="ep-title">Episode 10</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[10].url, spyFamilyEpisodes[10].title, 11)"><span class="ep-num">11</span><span class="ep-title">Episode 11</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[11].url, spyFamilyEpisodes[11].title, 12)"><span class="ep-num">12</span><span class="ep-title">Episode 12</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[12].url, spyFamilyEpisodes[12].title, 13)"><span class="ep-num">13</span><span class="ep-title">Episode 13</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[13].url, spyFamilyEpisodes[13].title, 14)"><span class="ep-num">14</span><span class="ep-title">Episode 14</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[14].url, spyFamilyEpisodes[14].title, 15)"><span class="ep-num">15</span><span class="ep-title">Episode 15</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[15].url, spyFamilyEpisodes[15].title, 16)"><span class="ep-num">16</span><span class="ep-title">Episode 16</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[16].url, spyFamilyEpisodes[16].title, 17)"><span class="ep-num">17</span><span class="ep-title">Episode 17</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[17].url, spyFamilyEpisodes[17].title, 18)"><span class="ep-num">18</span><span class="ep-title">Episode 18</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[18].url, spyFamilyEpisodes[18].title, 19)"><span class="ep-num">19</span><span class="ep-title">Episode 19</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[19].url, spyFamilyEpisodes[19].title, 20)"><span class="ep-num">20</span><span class="ep-title">Episode 20</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[20].url, spyFamilyEpisodes[20].title, 21)"><span class="ep-num">21</span><span class="ep-title">Episode 21</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[21].url, spyFamilyEpisodes[21].title, 22)"><span class="ep-num">22</span><span class="ep-title">Episode 22</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[22].url, spyFamilyEpisodes[22].title, 23)"><span class="ep-num">23</span><span class="ep-title">Episode 23</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[23].url, spyFamilyEpisodes[23].title, 24)"><span class="ep-num">24</span><span class="ep-title">Episode 24</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(spyFamilyEpisodes[24].url, spyFamilyEpisodes[24].title, 25)"><span class="ep-num">25</span><span class="ep-title">Episode 25</span><span class="ep-arrow">▶</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Dr. Stone -->
+  <div class="series-card category webseries active">
     <h2>Dr. Stone Season 1 Hindi Dubbed WEB-DL Episodes</h2>
-    <img src="https://i.ibb.co/C5045MWz/IMG-20260214-092309.jpg" alt="Dr. Stone Season 1 Poster">
+    <img src="https://i.ibb.co/C5045MWz/IMG-20260214-092309.jpg" alt="Dr. Stone Poster">
     <p>By Video Cinema / February 2026</p>
     <h3>Series Information</h3>
     <ul>
@@ -356,90 +345,137 @@ function backToHome() {
       <li><strong>Quality:</strong> 720p</li>
       <li><strong>Audio:</strong> Hindi Dubbed + Multi Audio</li>
       <li><strong>Subtitles:</strong> English</li>
-      <li><strong>Total Episodes:</strong> 24 (including batches)</li>
+      <li><strong>Total Episodes:</strong> 24 (incl. batches)</li>
     </ul>
     <div class="short-desc">
-      <p>Thousands of years after a mysterious green light petrified all of humanity...</p>
+      <p>After humanity is petrified, genius Senku awakens and uses science to rebuild civilization from the Stone Age.</p>
     </div>
     <button class="see-more-btn" onclick="document.getElementById('drstoneFull').style.display='block'; this.style.display='none';">See More</button>
     <div id="drstoneFull" class="full-desc">
-      <p>Dr. Stone Season 1 is a breathtaking fusion of science education...</p>
+      <p>Dr. Stone Season 1 is an inspiring fusion of science education, post-apocalyptic adventure, and philosophical drama. A green flash petrifies humanity for 3,700 years. Senku Ishigami awakens in a nature-reclaimed world and vows to rebuild civilization using science. With Taiju’s strength and Yuzuriha’s crafting, they start the "Kingdom of Science." Episodes show real science — fire-making, soap, glass, antibiotics, electricity — driving plot and survival. Chrome becomes Senku’s apprentice, while Tsukasa’s "Empire of Might" opposes progress. The ideological clash (brain vs. brawn) is thrilling. Animation is vibrant, soundtrack uplifting. Hindi dub makes science exciting. A celebration of curiosity and perseverance.</p>
     </div>
     <div onclick="showSeriesEpisodes('drstone')" class="watch-button">Watch Episodes</div>
     <div id="drstoneEpisodes" class="episode-list-container">
       <ul class="episode-list">
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[0].url, drStoneEpisodes[0].title, 1)">
-          <span class="ep-num">1</span><span class="ep-title">Episode 1: Stone World</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[1].url, drStoneEpisodes[1].title, 2)">
-          <span class="ep-num">2</span><span class="ep-title">Episode 2: King of the Stone World</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[2].url, drStoneEpisodes[2].title, 3)">
-          <span class="ep-num">3</span><span class="ep-title">Episode 3: Weapons of Science</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[3].url, drStoneEpisodes[3].title, 4)">
-          <span class="ep-num">4</span><span class="ep-title">Episode 4: Fire the Smoke Signal</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[4].url, drStoneEpisodes[4].title, 5)">
-          <span class="ep-num">5</span><span class="ep-title">Episode 5: Stone World the Beginning</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[5].url, drStoneEpisodes[5].title, 6)">
-          <span class="ep-num">6</span><span class="ep-title">Episode 6: The Shape of the Future</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[6].url, drStoneEpisodes[6].title, 7)">
-          <span class="ep-num">7</span><span class="ep-title">Episode 7: Thousands of Years of Boredom</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[7].url, drStoneEpisodes[7].title, 9)">
-          <span class="ep-num">9</span><span class="ep-title">Episode 9: A Flimsy Alliance</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[8].url, drStoneEpisodes[8].title, 11)">
-          <span class="ep-num">11</span><span class="ep-title">Episode 11: The Kingdom of Science is Born</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[9].url, drStoneEpisodes[9].title, 12)">
-          <span class="ep-num">12</span><span class="ep-title">Episode 12: The Miracle Cave</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[10].url, drStoneEpisodes[10].title, 13)">
-          <span class="ep-num">13</span><span class="ep-title">Episode 13: Masked Warrior</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[11].url, drStoneEpisodes[11].title, '14-21')">
-          <span class="ep-num">14-21</span><span class="ep-title">Episodes 14–21 (Batch)</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[12].url, drStoneEpisodes[12].title, '22-24')">
-          <span class="ep-num">22-24</span><span class="ep-title">Episodes 22–24</span><span class="ep-arrow">▶</span>
-        </li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[0].url, drStoneEpisodes[0].title, 1)"><span class="ep-num">1</span><span class="ep-title">Episode 1: Stone World</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[1].url, drStoneEpisodes[1].title, 2)"><span class="ep-num">2</span><span class="ep-title">Episode 2: King of the Stone World</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[2].url, drStoneEpisodes[2].title, 3)"><span class="ep-num">3</span><span class="ep-title">Episode 3: Weapons of Science</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[3].url, drStoneEpisodes[3].title, 4)"><span class="ep-num">4</span><span class="ep-title">Episode 4: Fire the Smoke Signal</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[4].url, drStoneEpisodes[4].title, 5)"><span class="ep-num">5</span><span class="ep-title">Episode 5: Stone World the Beginning</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[5].url, drStoneEpisodes[5].title, 6)"><span class="ep-num">6</span><span class="ep-title">Episode 6: The Shape of the Future</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[6].url, drStoneEpisodes[6].title, 7)"><span class="ep-num">7</span><span class="ep-title">Episode 7: Thousands of Years of Boredom</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[7].url, drStoneEpisodes[7].title, 9)"><span class="ep-num">9</span><span class="ep-title">Episode 9: A Flimsy Alliance</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[8].url, drStoneEpisodes[8].title, 11)"><span class="ep-num">11</span><span class="ep-title">Episode 11: The Kingdom of Science is Born</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[9].url, drStoneEpisodes[9].title, 12)"><span class="ep-num">12</span><span class="ep-title">Episode 12: The Miracle Cave</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[10].url, drStoneEpisodes[10].title, 13)"><span class="ep-num">13</span><span class="ep-title">Episode 13: Masked Warrior</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[11].url, drStoneEpisodes[11].title, '14-21')"><span class="ep-num">14-21</span><span class="ep-title">Episodes 14–21 (Batch)</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(drStoneEpisodes[12].url, drStoneEpisodes[12].title, '22-24')"><span class="ep-num">22-24</span><span class="ep-title">Episodes 22–24</span><span class="ep-arrow">▶</span></li>
       </ul>
     </div>
   </div>
 
-  <!-- Tokyo Ghoul Season 1 -->
-  <div class="series-card">
+  <!-- Tokyo Ghoul -->
+  <div class="series-card category webseries active">
     <h2>Tokyo Ghoul Season 1 Hindi Dubbed WEB-DL Episodes</h2>
-    <img src="https://i.ibb.co/ZR2XY9BR/Screenshot-2026-02-20-06-42-38-93-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="Tokyo Ghoul Season 1 Poster">
+    <img src="https://i.ibb.co/ZR2XY9BR/Screenshot-2026-02-20-06-42-38-93-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="Tokyo Ghoul Poster">
     <p>By Video Cinema / February 2026</p>
     <h3>Series Information</h3>
     <ul>
       <li><strong>Title:</strong> Tokyo Ghoul Season 1</li>
-      <li><strong>Genres:</strong> Action | Horror | Fantasy | Psychological</li>
+      <li><strong>Genres:</strong> Action | Horror | Psychological</li>
       <li><strong>Quality:</strong> 720p</li>
       <li><strong>Audio:</strong> Hindi Dubbed</li>
-      <li><strong>Subtitles:</strong> English (if available)</li>
+      <li><strong>Subtitles:</strong> English</li>
       <li><strong>Total Episodes:</strong> 12</li>
     </ul>
     <div class="short-desc">
-      <p>Tokyo Ghoul Season 1 follows the tragic story of Ken Kaneki...</p>
+      <p>Ken Kaneki becomes a half-ghoul and struggles between human and ghoul worlds.</p>
     </div>
     <button class="see-more-btn" onclick="document.getElementById('tokyoFull').style.display='block'; this.style.display='none';">See More</button>
     <div id="tokyoFull" class="full-desc">
-      <p>Tokyo Ghoul Season 1 is a haunting masterpiece...</p>
+      <p>Tokyo Ghoul Season 1 is a dark psychological horror exploring identity and survival. Ken Kaneki becomes a half-ghoul after a transplant from ghoul Rize. He navigates the hidden ghoul world while hiding from the CCG. Sheltered by Anteiku, he learns to control his hunger. Themes of humanity, morality, and trauma are deep. Animation is atmospheric, soundtrack haunting. Hindi dub adds raw emotion. A gripping, tragic classic.</p>
     </div>
     <div onclick="showSeriesEpisodes('tokyoghoul')" class="watch-button">Watch Episodes</div>
     <div id="tokyoghoulEpisodes" class="episode-list-container">
       <ul class="episode-list">
-        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[0].url, tokyoGhoulEpisodes[0].title, 1)">
-          <span class="ep-num">1</span><span class="ep-title">Episode 1</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[1].url, tokyoGhoulEpisodes[1].title, 2)">
-          <span class="ep-num">2</span><span class="ep-title">Episode 2</span><span class="ep-arrow">▶</span>
-        </li>
-        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[2].url, tokyoGhoulEpisodes[2].title, 3)">
-          <span class="ep-num">3</span><span class
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[0].url, tokyoGhoulEpisodes[0].title, 1)"><span class="ep-num">1</span><span class="ep-title">Episode 1</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[1].url, tokyoGhoulEpisodes[1].title, 2)"><span class="ep-num">2</span><span class="ep-title">Episode 2</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[2].url, tokyoGhoulEpisodes[2].title, 3)"><span class="ep-num">3</span><span class="ep-title">Episode 3</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[3].url, tokyoGhoulEpisodes[3].title, 4)"><span class="ep-num">4</span><span class="ep-title">Episode 4</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[4].url, tokyoGhoulEpisodes[4].title, 5)"><span class="ep-num">5</span><span class="ep-title">Episode 5</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[5].url, tokyoGhoulEpisodes[5].title, 6)"><span class="ep-num">6</span><span class="ep-title">Episode 6</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[6].url, tokyoGhoulEpisodes[6].title, 7)"><span class="ep-num">7</span><span class="ep-title">Episode 7</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[7].url, tokyoGhoulEpisodes[7].title, 8)"><span class="ep-num">8</span><span class="ep-title">Episode 8</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[8].url, tokyoGhoulEpisodes[8].title, 9)"><span class="ep-num">9</span><span class="ep-title">Episode 9</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[9].url, tokyoGhoulEpisodes[9].title, 10)"><span class="ep-num">10</span><span class="ep-title">Episode 10</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[10].url, tokyoGhoulEpisodes[10].title, 11)"><span class="ep-num">11</span><span class="ep-title">Episode 11</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(tokyoGhoulEpisodes[11].url, tokyoGhoulEpisodes[11].title, 12)"><span class="ep-num">12</span><span class="ep-title">Episode 12</span><span class="ep-arrow">▶</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Reborn to Master the Blade -->
+  <div class="series-card category webseries active">
+    <h2>Reborn to Master the Blade S1 Hindi Dubbed WEB-DL Episodes</h2>
+    <img src="https://i.ibb.co/gbFJdKyH/Screenshot-2026-03-01-21-49-44-16-680d03679600f7af0b4c700c6b270fe7.jpg" alt="Reborn to Master the Blade Poster">
+    <p>By Video Cinema / February 2026</p>
+    <h3>Series Information</h3>
+    <ul>
+      <li><strong>Title:</strong> Reborn to Master the Blade: From Hero-King to Extraordinary Squire</li>
+      <li><strong>Genres:</strong> Action | Fantasy | Isekai</li>
+      <li><strong>Quality:</strong> 720p</li>
+      <li><strong>Audio:</strong> Hindi Dubbed</li>
+      <li><strong>Subtitles:</strong> English</li>
+      <li><strong>Total Episodes:</strong> 12</li>
+    </ul>
+    <div class="short-desc">
+      <p>Hero-King reborn as girl Inglis masters swordsmanship without magic, proving strength comes from effort.</p>
+    </div>
+    <button class="see-more-btn" onclick="document.getElementById('rebornFull').style.display='block'; this.style.display='none';">See More</button>
+    <div id="rebornFull" class="full-desc">
+      <p>Reborn to Master the Blade is an inspiring isekai focused on earned strength and sword mastery. The Hero-King reincarnates as Inglis Eucus with no mana — she becomes the strongest through training alone. With Rafinha and her grandfather, she enters tournaments and battles. Stunning sword fights, uplifting soundtrack, and empowering message make it a standout. Hindi dub adds energy. A celebration of hard work and skill.</p>
+    </div>
+    <div onclick="showSeriesEpisodes('rebornblade')" class="watch-button">Watch Episodes</div>
+    <div id="rebornbladeEpisodes" class="episode-list-container">
+      <ul class="episode-list">
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[0].url, rebornBladeEpisodes[0].title, 1)"><span class="ep-num">1</span><span class="ep-title">Episode 1</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[1].url, rebornBladeEpisodes[1].title, 2)"><span class="ep-num">2</span><span class="ep-title">Episode 2</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[2].url, rebornBladeEpisodes[2].title, 3)"><span class="ep-num">3</span><span class="ep-title">Episode 3</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[3].url, rebornBladeEpisodes[3].title, 4)"><span class="ep-num">4</span><span class="ep-title">Episode 4</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[4].url, rebornBladeEpisodes[4].title, 5)"><span class="ep-num">5</span><span class="ep-title">Episode 5</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[5].url, rebornBladeEpisodes[5].title, 6)"><span class="ep-num">6</span><span class="ep-title">Episode 6</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[6].url, rebornBladeEpisodes[6].title, 7)"><span class="ep-num">7</span><span class="ep-title">Episode 7</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[7].url, rebornBladeEpisodes[7].title, 8)"><span class="ep-num">8</span><span class="ep-title">Episode 8</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[8].url, rebornBladeEpisodes[8].title, 9)"><span class="ep-num">9</span><span class="ep-title">Episode 9</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[9].url, rebornBladeEpisodes[9].title, 10)"><span class="ep-num">10</span><span class="ep-title">Episode 10</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[10].url, rebornBladeEpisodes[10].title, 11)"><span class="ep-num">11</span><span class="ep-title">Episode 11</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(rebornBladeEpisodes[11].url, rebornBladeEpisodes[11].title, 12)"><span class="ep-num">12</span><span class="ep-title">Episode 12</span><span class="ep-arrow">▶</span></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div id="videoSection" class="video-section">
+  <h2 id="nowWatching">Now Watching</h2>
+  <div id="loadingMessage">Loading video… please wait</div>
+  <iframe id="videoFrame" src="" allowfullscreen></iframe>
+  <div class="double-click-notice">Double click for better experience</div>
+  <div class="player-notice"><strong>Notice:</strong> Ignore ads/disclaimers in player. Enjoy!</div>
+  <div id="nextEpisodeSection" class="next-suggestion"></div>
+  <button onclick="document.getElementById('videoFrame').src = document.getElementById('videoFrame').src">Refresh Player</button>
+  <button onclick="backToHome()">Back to Home</button>
+</div>
+
+<!-- Ad scripts -->
+<script src="https://pl28840925.effectivegatecpm.com/40/d1/46/40d14676fb92aef517dc6bf183339f95.js"></script>
+<script type="text/javascript" data-cfasync="false">
+/*<![CDATA[/* */
+(function(){var o=window,l="ee5f107f53a6c3465bba1a5f37813d53",c=[["siteId",476+185-967-50+592+5278377],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],d=["d3d3LmNkbjRhZHMuY29tL1hYQk1kL1hZencvcXNpZ21hLm1pbi5qcw==","ZDNnNW92Zm5nanc5YncuY2xvdWRmcm9udC5uZXQvYmljYWwubWluLmpz"],n=-1,v,u,j=function(){clearTimeout(u);n++;if(d[n]&&!(1798869571000<(new Date).getTime()&&1<n)){v=o.document.createElement("script");v.type="text/javascript";v.async=!0;var t=o.document.getElementsByTagName("script")[0];v.src="https://"+atob(d[n]);v.crossOrigin="anonymous";v.onerror=j;v.onload=function(){clearTimeout(u);o[l.slice(0,16)+l.slice(0,16)]||j()};u=setTimeout(j,5E3);t.parentNode.insertBefore(v,t)}};if(!o[l]){try{Object.freeze(o[l]=c)}catch(e){}j()}})();
+/*]]>/* */
+</script>
+
+<footer>© 2026 Video Cinema | All Rights Reserved</footer>
+
+</body>
+</html>
