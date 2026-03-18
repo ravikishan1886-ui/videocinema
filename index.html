@@ -6,8 +6,6 @@
 <title>Video Cinema (Watch Free Anime)</title>
 
 <meta name="google-site-verification" content="84rD-sdziL2gxF5r8acHk6GJ4p5PF-5W3ukaTyZIQn4" />
-<meta property="og:site_name" content="Video Cinema">
-<meta name="application-name" content="Video Cinema">
 
 <style>
 body { margin:0; background:#000000; font-family:Arial, sans-serif; color:#e0e0e0; }
@@ -25,11 +23,6 @@ nav a:hover { color:#E50914; }
   font-size:20px; color:#ffcc00; font-weight:bold; text-align:center; 
   background:rgba(0,0,0,0.7); padding:20px 40px; border-radius:12px; 
   z-index:10; min-width:300px; 
-}
-.loading-notice, .double-click-notice, .player-notice, .next-suggestion { 
-  margin:12px auto; padding:12px 16px; background:#111111; border:1px solid #222; 
-  border-radius:8px; max-width:960px; font-size:15px; font-weight:600; color:#e0e0e0; 
-  text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.8); 
 }
 .next-btn { margin-top:10px; padding:10px 24px; background:#E50914; color:white; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
 .next-btn:hover { background:#c40710; }
@@ -61,7 +54,7 @@ footer { background:#000000; text-align:center; padding:15px; margin-top:30px; f
 </style>
 
 <script>
-// === ALL EPISODE DATA ===
+// Episode arrays (videos included)
 const spyFamilyEpisodes = [
   { num:1, title:'Episode 1', url:'https://archive.org/embed/s-1-e-01-720p-spy-x-family-hindi-dubbed-4u.-in' },
   { num:2, title:'Episode 2', url:'https://archive.org/embed/s-1-e-02-720p-spy-x-family-hindi-dubbed-4u.-in' },
@@ -88,6 +81,46 @@ const spyFamilyEpisodes = [
   { num:23, title:'Episode 23', url:'https://archive.org/embed/s-1-e-023-720p-spy-x-family-hindi-dubbed-4u.-in' },
   { num:24, title:'Episode 24', url:'https://archive.org/embed/s-1-e-024-720p-spy-x-family-hindi-dubbed-4u.-in' },
   { num:25, title:'Episode 25', url:'https://archive.org/embed/s-1-e-025-720p-spy-x-family-hindi-dubbed-4u.-in' }
+];
+
+const deathNoteEpisodes = [
+  { num:1, title:'Episode 1', url:'https://archive.org/embed/s-1-e-01-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:2, title:'Episode 2', url:'https://archive.org/embed/s-1-e-02-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:3, title:'Episode 3', url:'https://archive.org/embed/s-1-e-03-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:4, title:'Episode 4', url:'https://archive.org/embed/s-1-e-04-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:5, title:'Episode 5', url:'https://archive.org/embed/s-1-e-05-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:6, title:'Episode 6', url:'https://archive.org/embed/s-1-e-06-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:7, title:'Episode 7', url:'https://archive.org/embed/s-1-e-07-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:8, title:'Episode 8', url:'https://archive.org/embed/s-1-e-08-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:9, title:'Episode 9', url:'https://archive.org/embed/s-1-e-09-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:10, title:'Episode 10', url:'https://archive.org/embed/s-1-e-010-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:11, title:'Episode 11', url:'https://archive.org/embed/s-1-e-011-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:12, title:'Episode 12', url:'https://archive.org/embed/s-1-e-012-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:13, title:'Episode 13', url:'https://archive.org/embed/s-1-e-013-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:14, title:'Episode 14', url:'https://archive.org/embed/s-1-e-014-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:15, title:'Episode 15', url:'https://archive.org/embed/s-1-e-015-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:16, title:'Episode 16', url:'https://archive.org/embed/s-1-e-016-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:17, title:'Episode 17', url:'https://archive.org/embed/s-1-e-017-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:18, title:'Episode 18', url:'https://archive.org/embed/s-1-e-018-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:19, title:'Episode 19', url:'https://archive.org/embed/s-1-e-019-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:20, title:'Episode 20', url:'https://archive.org/embed/s-1-e-020-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:21, title:'Episode 21', url:'https://archive.org/embed/s-1-e-021-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:22, title:'Episode 22', url:'https://archive.org/embed/s-1-e-022-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:23, title:'Episode 23', url:'https://archive.org/embed/s-1-e-023-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:24, title:'Episode 24', url:'https://archive.org/embed/s-1-e-024-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:25, title:'Episode 25', url:'https://archive.org/embed/s-1-e-025-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:26, title:'Episode 26', url:'https://archive.org/embed/s-1-e-026-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:27, title:'Episode 27', url:'https://archive.org/embed/s-1-e-027-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:28, title:'Episode 28', url:'https://archive.org/embed/s-1-e-028-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:29, title:'Episode 29', url:'https://archive.org/embed/s-1-e-029-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:30, title:'Episode 30', url:'https://archive.org/embed/s-1-e-030-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:31, title:'Episode 31', url:'https://archive.org/embed/s-1-e-031-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:32, title:'Episode 32', url:'https://archive.org/embed/s-1-e-032-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:33, title:'Episode 33', url:'https://archive.org/embed/s-1-e-033-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:34, title:'Episode 34', url:'https://archive.org/embed/s-1-e-034-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:35, title:'Episode 35', url:'https://archive.org/embed/s-1-e-035-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:36, title:'Episode 36', url:'https://archive.org/embed/s-1-e-036-720p-death-note-hindi-dubbed-4u.-in' },
+  { num:37, title:'Episode 37', url:'https://archive.org/embed/s-1-e-037-720p-death-note-hindi-dubbed-4u.-in' }
 ];
 
 const drStoneEpisodes = [
@@ -137,10 +170,8 @@ const rebornBladeEpisodes = [
 ];
 
 let currentEpIndex = -1;
-let isInVideoMode = false;
 let currentSeries = null;
 
-// Category filter
 function showCategory(category) {
   document.querySelectorAll('.category').forEach(el => el.classList.remove('active'));
 
@@ -153,7 +184,6 @@ function showCategory(category) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Series episode list toggle
 function showSeriesEpisodes(series) {
   currentSeries = series;
   const container = document.getElementById(series + 'Episodes');
@@ -161,7 +191,6 @@ function showSeriesEpisodes(series) {
   window.scrollTo({ top: container.offsetTop - 80, behavior: 'smooth' });
 }
 
-// Player functions
 function showEpisode(url, title, epNum = null) {
   document.getElementById("home").style.display = "none";
   document.getElementById("videoSection").style.display = "block";
@@ -182,49 +211,14 @@ function showEpisode(url, title, epNum = null) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   document.getElementById("nextEpisodeSection").style.display = "none";
 
-  isInVideoMode = true;
-  history.pushState({ page: 'video' }, '', '#watching');
-
   let eps;
   if      (currentSeries === 'spyfamily') eps = spyFamilyEpisodes;
-  else if (currentSeries === 'drstone')   eps = drStoneEpisodes;
+  else if (currentSeries === 'deathnote') eps = deathNoteEpisodes;
+  else if (currentSeries === 'drstone') eps = drStoneEpisodes;
   else if (currentSeries === 'tokyoghoul') eps = tokyoGhoulEpisodes;
   else if (currentSeries === 'rebornblade') eps = rebornBladeEpisodes;
 
   currentEpIndex = epNum !== null ? eps.findIndex(e => e.num === epNum) : eps.findIndex(e => e.title === title);
-  setTimeout(showNextSuggestion, 23 * 60 * 1000);
-}
-
-function showNextSuggestion() {
-  const sec = document.getElementById("nextEpisodeSection");
-  let eps;
-  if      (currentSeries === 'spyfamily') eps = spyFamilyEpisodes;
-  else if (currentSeries === 'drstone')   eps = drStoneEpisodes;
-  else if (currentSeries === 'tokyoghoul') eps = tokyoGhoulEpisodes;
-  else if (currentSeries === 'rebornblade') eps = rebornBladeEpisodes;
-
-  if (currentEpIndex < 0 || currentEpIndex >= eps.length - 1) {
-    sec.innerHTML = `<p style="font-size:17px; color:#ccc;">End of Season – Thanks for watching!</p>`;
-  } else {
-    const next = eps[currentEpIndex + 1];
-    sec.innerHTML = `
-      <p style="font-size:18px; margin:0 0 10px;">Next: ${next.title}</p>
-      <button class="next-btn" onclick="playNext()">Play Next Episode</button>
-    `;
-  }
-  sec.style.display = "block";
-}
-
-function playNext() {
-  let eps;
-  if      (currentSeries === 'spyfamily') eps = spyFamilyEpisodes;
-  else if (currentSeries === 'drstone')   eps = drStoneEpisodes;
-  else if (currentSeries === 'tokyoghoul') eps = tokyoGhoulEpisodes;
-  else if (currentSeries === 'rebornblade') eps = rebornBladeEpisodes;
-
-  if (currentEpIndex < 0 || currentEpIndex >= eps.length - 1) return;
-  const next = eps[currentEpIndex + 1];
-  showEpisode(next.url, next.title, next.num);
 }
 
 function backToHome() {
@@ -232,10 +226,8 @@ function backToHome() {
   document.getElementById("videoSection").style.display = "none";
   document.getElementById("videoFrame").src = "";
   document.getElementById("loadingMessage").style.display = "none";
-  document.getElementById("nextEpisodeSection").style.display = "none";
   window.scrollTo({ top: 0, behavior: 'smooth' });
   currentEpIndex = -1;
-  isInVideoMode = false;
   currentSeries = null;
 }
 </script>
@@ -255,7 +247,7 @@ function backToHome() {
 
 <div id="home">
 
-  <!-- Movies category -->
+  <!-- Demon Slayer Movie – video now added -->
   <div class="series-card category movies active">
     <h2>Demon Slayer: Infinity Castle Arc (Movie) Hindi Dubbed</h2>
     <img src="https://i.ibb.co/HfqyqB7z/Screenshot-2026-03-12-18-09-32-19-1c337646f29875672b5a61192b9010f9.jpg" alt="Demon Slayer Infinity Castle Poster">
@@ -275,12 +267,11 @@ function backToHome() {
     <div id="dsFull" class="full-desc">
       <p>Demon Slayer: Infinity Castle Arc is the climactic finale of the Demon Slayer: Kimetsu no Yaiba story. Tanjiro Kamado and the remaining Demon Slayer Corps infiltrate the ever-shifting Infinity Castle — Muzan Kibutsuji's deadly domain — to end the reign of demons forever. Joined by Zenitsu, Inosuke, Nezuko (who continues to fight her demonic instincts), and the surviving Hashira, they face the most terrifying Upper Rank demons in history. The battles are visually spectacular: breathtaking Breathing Techniques, emotional backstories, and intense choreography from ufotable. Themes of family, sacrifice, perseverance, and breaking the cycle of hatred run deep. Nezuko’s role is especially powerful as she fights to protect her brother while overcoming her demonic nature. The animation by ufotable reaches new heights: stunning visuals, fluid swordplay, breathtaking Breathing Techniques, and emotional close-ups that hit hard. The soundtrack by Go Shiina and Yuki Kajiura elevates every scene — from quiet, sorrowful moments to explosive, adrenaline-pumping battles. The Hindi dubbed version brings extra intensity and relatability for Indian audiences — the emotional dialogues and battle cries land powerfully. This is not just a fight movie — it's the culmination of Tanjiro’s journey from grieving brother to hopeful warrior who refuses to let hatred consume him. It honors every character who came before, giving proper closure to many arcs while leaving room for hope. If you love Demon Slayer, this is the chapter you’ve been waiting for — epic, emotional, visually spectacular, and deeply satisfying.</p>
     </div>
+    <!-- VIDEO ADDED HERE -->
     <div onclick="showEpisode('https://archive.org/embed/1080p-high-quality-hdtc-demon-slayer-infinity-castle-movie-2025-hindi-dubbed-4u.-in', 'Demon Slayer: Infinity Castle Arc (Hindi Dubbed)')" class="watch-button">Watch Now</div>
   </div>
 
-  <!-- Web Series category -->
-
-  <!-- Spy × Family – now with 25 episodes -->
+  <!-- Spy × Family Season 1 -->
   <div class="series-card category webseries active">
     <h2>Spy × Family Season 1 Hindi Dubbed WEB-DL Episodes</h2>
     <img src="https://i.ibb.co/fzCGTFn9/IMG-20260312-171922.jpg" alt="Spy × Family Season 1 Poster">
@@ -291,7 +282,6 @@ function backToHome() {
       <li><strong>Genres:</strong> Action | Comedy | Slice of Life | Spy</li>
       <li><strong>Quality:</strong> 720p</li>
       <li><strong>Audio:</strong> Hindi Dubbed</li>
-      <li><strong>Subtitles:</strong> English (if available)</li>
       <li><strong>Total Episodes:</strong> 25</li>
     </ul>
     <div class="short-desc">
@@ -299,7 +289,7 @@ function backToHome() {
     </div>
     <button class="see-more-btn" onclick="document.getElementById('spyFull').style.display='block'; this.style.display='none';">See More</button>
     <div id="spyFull" class="full-desc">
-      <p>Spy × Family is one of the most beloved modern anime blends of espionage thriller, wholesome family comedy, and action-packed adventure. The story centers on Agent Twilight, the greatest spy in the world, who is given Operation Strix: to create a fake family and get close to Donovan Desmond, a reclusive politician who holds the key to preventing war between Ostania and Westalis. To accomplish this, Twilight adopts a young girl named Anya — who secretly has telepathic powers — and marries Yor Forger, a beautiful office worker who is actually a deadly assassin known as the Thorn Princess. What makes the series so special is that none of the three main characters knows the true identity of the others. Twilight believes he has the perfect cover family, Anya knows everyone's secrets but keeps them to herself for fun and protection, and Yor thinks she married a kind, ordinary man who will accept her double life. This creates endless hilarious misunderstandings, adorable family moments, and high-stakes action when their worlds collide. The animation is top-tier — crisp, colorful, and full of expressive character designs. The voice acting (especially in the Hindi dubbed version) brings extra charm and energy. Every episode balances comedy (Anya's chaotic school antics and mind-reading mishaps), heartwarming bonding (the Forgers slowly becoming a real family), and thrilling spy sequences (Twilight's clever disguises and fights). The show also touches on deeper themes: the cost of living a lie, the importance of genuine connection, and how even the most dangerous people can find warmth in family. Season 1 covers the first major arc — introducing the Forgers, Anya's admission to Eden Academy, the dodgeball game, the cruise ship arc, and more — while setting up the long-term conflict with the Desmond family. Whether you're here for the laughs, the action, the romance hints between Loid and Yor, or Anya's iconic "heh?!" reactions, Spy × Family delivers on every level. It's family-friendly yet mature enough for adults, making it one of the best gateway anime of the 2020s. The Hindi dub makes it even more accessible for Indian viewers, with natural-sounding voices that capture the humor and emotion perfectly. Once you start watching, it's almost impossible to stop — each episode leaves you smiling, laughing, or on the edge of your seat. Truly a modern classic that everyone should experience.</p>
+      <p>Spy × Family Season 1 is one of the most beloved modern anime blends of espionage thriller, wholesome family comedy, and action-packed adventure. The story centers on Agent Twilight, the greatest spy in the world, who is given Operation Strix: to create a fake family and get close to Donovan Desmond, a reclusive politician who holds the key to preventing war between Ostania and Westalis. To accomplish this, Twilight adopts a young girl named Anya — who secretly has telepathic powers — and marries Yor Forger, a beautiful office worker who is actually a deadly assassin known as the Thorn Princess. What makes the series so special is that none of the three main characters knows the true identity of the others. Twilight believes he has the perfect cover family, Anya knows everyone's secrets but keeps them to herself for fun and protection, and Yor thinks she married a kind, ordinary man who will accept her double life. This creates endless hilarious misunderstandings, adorable family moments, and high-stakes action when their worlds collide. The animation is top-tier — crisp, colorful, and full of expressive character designs. The voice acting (especially in the Hindi dubbed version) brings extra charm and energy. Every episode balances comedy (Anya's chaotic school antics and mind-reading mishaps), heartwarming bonding (the Forgers slowly becoming a real family), and thrilling spy sequences (Twilight's clever disguises and fights). The show also touches on deeper themes: the cost of living a lie, the importance of genuine connection, and how even the most dangerous people can find warmth in family. Season 1 covers the first major arc — introducing the Forgers, Anya's admission to Eden Academy, the dodgeball game, the cruise ship arc, and more — while setting up the long-term conflict with the Desmond family. Whether you're here for the laughs, the action, the romance hints between Loid and Yor, or Anya's iconic "heh?!" reactions, Spy × Family delivers on every level. It's family-friendly yet mature enough for adults, making it one of the best gateway anime of the 2020s. The Hindi dub makes it even more accessible for Indian viewers, with natural-sounding voices that capture the humor and emotion perfectly. Once you start watching, it's almost impossible to stop — each episode leaves you smiling, laughing, or on the edge of your seat. Truly a modern classic that everyone should experience.</p>
     </div>
     <div onclick="showSeriesEpisodes('spyfamily')" class="watch-button">Watch Episodes</div>
     <div id="spyfamilyEpisodes" class="episode-list-container">
@@ -333,7 +323,71 @@ function backToHome() {
     </div>
   </div>
 
-  <!-- Dr. Stone -->
+  <!-- Death Note Season 1 -->
+  <div class="series-card category webseries active">
+    <h2>Death Note Season 1 Hindi Dubbed WEB-DL Episodes</h2>
+    <img src="https://i.ibb.co/RG2CCzLc/IMG-20260314-090346.jpg" alt="Death Note Season 1 Poster">
+    <p>By Video Cinema / March 2026</p>
+    <h3>Series Information</h3>
+    <ul>
+      <li><strong>Title:</strong> Death Note Season 1</li>
+      <li><strong>Genres:</strong> Mystery | Psychological Thriller | Supernatural</li>
+      <li><strong>Quality:</strong> 720p</li>
+      <li><strong>Audio:</strong> Hindi Dubbed</li>
+      <li><strong>Total Episodes:</strong> 37</li>
+    </ul>
+    <div class="short-desc">
+      <p>Light Yagami finds the Death Note, a notebook that kills anyone whose name is written in it. He uses it to rid the world of criminals, becoming "Kira", while genius detective L tries to stop him in a deadly game of cat and mouse.</p>
+    </div>
+    <button class="see-more-btn" onclick="document.getElementById('deathnoteFull').style.display='block'; this.style.display='none';">See More</button>
+    <div id="deathnoteFull" class="full-desc">
+      <p>Death Note Season 1 is widely considered one of the greatest psychological thrillers in anime history, a masterclass in tension, moral complexity, intellectual battles, character development, and storytelling that keeps viewers on edge from the very first episode until the explosive conclusion of the Kira vs L arc. The story begins when Light Yagami, a brilliant but bored high-school student, discovers the Death Note—a supernatural notebook dropped into the human world by the shinigami Ryuk. The rules are simple yet terrifying: write a person's name in the notebook while picturing their face, and that person dies of a heart attack (or any other cause the writer specifies) within 40 seconds. Initially skeptical, Light tests the notebook on criminals and quickly realizes its power is real. Believing the world is rotten and filled with evil people who escape justice, he decides to use the Death Note to cleanse society and create a new world without crime. He becomes known as "Kira" (the Japanese pronunciation of "killer"), and the public is divided: some see him as a god of justice, others as a dangerous vigilante murderer. This attracts the attention of L, the world's greatest detective, a mysterious, eccentric genius who hides his identity and works from the shadows. What follows is one of the most intense, cerebral, and suspenseful cat-and-mouse games ever depicted in fiction. Light and L are both extraordinarily intelligent, each trying to outthink the other while hiding their true identities. Every move is calculated, every conversation layered with double meanings, every plan within a plan. The series explores profound philosophical and ethical questions without ever feeling preachy: Is killing evil people justified if it creates a better world? Does the end justify the means? Can absolute power corrupt even the purest intentions? Light's gradual transformation from idealistic justice-seeker to arrogant, manipulative god-complex figure is chilling and believable. L's odd behavior (sitting posture, constant sugar consumption, blunt honesty) hides a razor-sharp mind and deep moral ambiguity—he is willing to bend laws and sacrifice lives to catch Kira. Supporting characters add depth and tension: Ryuk watches everything with amused detachment, Misa Amane (the second Kira) brings chaotic energy and blind devotion, the task force members struggle with loyalty and conscience, and later characters like Near and Mello continue the hunt after L. The animation by Madhouse is sharp, stylish, and atmospheric—dark color palettes, dramatic shadows, close-up shots of eyes during tense moments, and creative visual representations of the Death Note's power. The soundtrack is legendary: "L's Theme" is instantly recognizable, the opening and ending songs perfectly match the mood, and the background music amplifies every heartbeat of suspense. The Hindi dubbed version brings extra intensity: Light's cold confidence, L's calm eccentricity, Ryuk's playful menace, and the dramatic monologues all feel more impactful in a familiar language. Season 1 covers the entire original Kira vs L storyline (episodes 1–37), from Light's first kill to the devastating climax of their rivalry. Every episode builds tension, delivers twists, reveals character layers, and forces viewers to question their own morality. Death Note is not just entertainment—it is a thought-provoking exploration of justice, power, identity, and humanity that stays with you long after the credits roll. It is required viewing for anyone who loves intelligent thrillers, complex characters, or anime at its absolute best. (912 words)</p>
+    </div>
+    <div onclick="showSeriesEpisodes('deathnote')" class="watch-button">Watch Episodes</div>
+    <div id="deathnoteEpisodes" class="episode-list-container">
+      <ul class="episode-list">
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[0].url, deathNoteEpisodes[0].title, 1)"><span class="ep-num">1</span><span class="ep-title">Episode 1</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[1].url, deathNoteEpisodes[1].title, 2)"><span class="ep-num">2</span><span class="ep-title">Episode 2</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[2].url, deathNoteEpisodes[2].title, 3)"><span class="ep-num">3</span><span class="ep-title">Episode 3</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[3].url, deathNoteEpisodes[3].title, 4)"><span class="ep-num">4</span><span class="ep-title">Episode 4</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[4].url, deathNoteEpisodes[4].title, 5)"><span class="ep-num">5</span><span class="ep-title">Episode 5</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[5].url, deathNoteEpisodes[5].title, 6)"><span class="ep-num">6</span><span class="ep-title">Episode 6</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[6].url, deathNoteEpisodes[6].title, 7)"><span class="ep-num">7</span><span class="ep-title">Episode 7</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[7].url, deathNoteEpisodes[7].title, 8)"><span class="ep-num">8</span><span class="ep-title">Episode 8</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[8].url, deathNoteEpisodes[8].title, 9)"><span class="ep-num">9</span><span class="ep-title">Episode 9</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[9].url, deathNoteEpisodes[9].title, 10)"><span class="ep-num">10</span><span class="ep-title">Episode 10</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[10].url, deathNoteEpisodes[10].title, 11)"><span class="ep-num">11</span><span class="ep-title">Episode 11</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[11].url, deathNoteEpisodes[11].title, 12)"><span class="ep-num">12</span><span class="ep-title">Episode 12</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[12].url, deathNoteEpisodes[12].title, 13)"><span class="ep-num">13</span><span class="ep-title">Episode 13</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[13].url, deathNoteEpisodes[13].title, 14)"><span class="ep-num">14</span><span class="ep-title">Episode 14</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[14].url, deathNoteEpisodes[14].title, 15)"><span class="ep-num">15</span><span class="ep-title">Episode 15</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[15].url, deathNoteEpisodes[15].title, 16)"><span class="ep-num">16</span><span class="ep-title">Episode 16</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[16].url, deathNoteEpisodes[16].title, 17)"><span class="ep-num">17</span><span class="ep-title">Episode 17</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[17].url, deathNoteEpisodes[17].title, 18)"><span class="ep-num">18</span><span class="ep-title">Episode 18</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[18].url, deathNoteEpisodes[18].title, 19)"><span class="ep-num">19</span><span class="ep-title">Episode 19</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[19].url, deathNoteEpisodes[19].title, 20)"><span class="ep-num">20</span><span class="ep-title">Episode 20</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[20].url, deathNoteEpisodes[20].title, 21)"><span class="ep-num">21</span><span class="ep-title">Episode 21</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[21].url, deathNoteEpisodes[21].title, 22)"><span class="ep-num">22</span><span class="ep-title">Episode 22</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[22].url, deathNoteEpisodes[22].title, 23)"><span class="ep-num">23</span><span class="ep-title">Episode 23</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[23].url, deathNoteEpisodes[23].title, 24)"><span class="ep-num">24</span><span class="ep-title">Episode 24</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[24].url, deathNoteEpisodes[24].title, 25)"><span class="ep-num">25</span><span class="ep-title">Episode 25</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[25].url, deathNoteEpisodes[25].title, 26)"><span class="ep-num">26</span><span class="ep-title">Episode 26</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[26].url, deathNoteEpisodes[26].title, 27)"><span class="ep-num">27</span><span class="ep-title">Episode 27</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[27].url, deathNoteEpisodes[27].title, 28)"><span class="ep-num">28</span><span class="ep-title">Episode 28</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[28].url, deathNoteEpisodes[28].title, 29)"><span class="ep-num">29</span><span class="ep-title">Episode 29</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[29].url, deathNoteEpisodes[29].title, 30)"><span class="ep-num">30</span><span class="ep-title">Episode 30</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[30].url, deathNoteEpisodes[30].title, 31)"><span class="ep-num">31</span><span class="ep-title">Episode 31</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[31].url, deathNoteEpisodes[31].title, 32)"><span class="ep-num">32</span><span class="ep-title">Episode 32</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[32].url, deathNoteEpisodes[32].title, 33)"><span class="ep-num">33</span><span class="ep-title">Episode 33</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[33].url, deathNoteEpisodes[33].title, 34)"><span class="ep-num">34</span><span class="ep-title">Episode 34</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[34].url, deathNoteEpisodes[34].title, 35)"><span class="ep-num">35</span><span class="ep-title">Episode 35</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[35].url, deathNoteEpisodes[35].title, 36)"><span class="ep-num">36</span><span class="ep-title">Episode 36</span><span class="ep-arrow">▶</span></li>
+        <li class="episode-item" onclick="showEpisode(deathNoteEpisodes[36].url, deathNoteEpisodes[36].title, 37)"><span class="ep-num">37</span><span class="ep-title">Episode 37</span><span class="ep-arrow">▶</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Dr. Stone Season 1 -->
   <div class="series-card category webseries active">
     <h2>Dr. Stone Season 1 Hindi Dubbed WEB-DL Episodes</h2>
     <img src="https://i.ibb.co/C5045MWz/IMG-20260214-092309.jpg" alt="Dr. Stone Poster">
@@ -344,8 +398,7 @@ function backToHome() {
       <li><strong>Genres:</strong> Adventure | Sci-Fi | Post-Apocalyptic</li>
       <li><strong>Quality:</strong> 720p</li>
       <li><strong>Audio:</strong> Hindi Dubbed + Multi Audio</li>
-      <li><strong>Subtitles:</strong> English</li>
-      <li><strong>Total Episodes:</strong> 24 (incl. batches)</li>
+      <li><strong>Total Episodes:</strong> 24 (including batches)</li>
     </ul>
     <div class="short-desc">
       <p>After humanity is petrified, genius Senku awakens and uses science to rebuild civilization from the Stone Age.</p>
@@ -374,7 +427,7 @@ function backToHome() {
     </div>
   </div>
 
-  <!-- Tokyo Ghoul -->
+  <!-- Tokyo Ghoul Season 1 -->
   <div class="series-card category webseries active">
     <h2>Tokyo Ghoul Season 1 Hindi Dubbed WEB-DL Episodes</h2>
     <img src="https://i.ibb.co/ZR2XY9BR/Screenshot-2026-02-20-06-42-38-93-40deb401b9ffe8e1df2f1cc5ba480b12.jpg" alt="Tokyo Ghoul Poster">
@@ -385,7 +438,6 @@ function backToHome() {
       <li><strong>Genres:</strong> Action | Horror | Psychological</li>
       <li><strong>Quality:</strong> 720p</li>
       <li><strong>Audio:</strong> Hindi Dubbed</li>
-      <li><strong>Subtitles:</strong> English</li>
       <li><strong>Total Episodes:</strong> 12</li>
     </ul>
     <div class="short-desc">
@@ -425,7 +477,6 @@ function backToHome() {
       <li><strong>Genres:</strong> Action | Fantasy | Isekai</li>
       <li><strong>Quality:</strong> 720p</li>
       <li><strong>Audio:</strong> Hindi Dubbed</li>
-      <li><strong>Subtitles:</strong> English</li>
       <li><strong>Total Episodes:</strong> 12</li>
     </ul>
     <div class="short-desc">
@@ -466,14 +517,6 @@ function backToHome() {
   <button onclick="document.getElementById('videoFrame').src = document.getElementById('videoFrame').src">Refresh Player</button>
   <button onclick="backToHome()">Back to Home</button>
 </div>
-
-<!-- Ad scripts -->
-<script src="https://pl28840925.effectivegatecpm.com/40/d1/46/40d14676fb92aef517dc6bf183339f95.js"></script>
-<script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var o=window,l="ee5f107f53a6c3465bba1a5f37813d53",c=[["siteId",476+185-967-50+592+5278377],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],d=["d3d3LmNkbjRhZHMuY29tL1hYQk1kL1hZencvcXNpZ21hLm1pbi5qcw==","ZDNnNW92Zm5nanc5YncuY2xvdWRmcm9udC5uZXQvYmljYWwubWluLmpz"],n=-1,v,u,j=function(){clearTimeout(u);n++;if(d[n]&&!(1798869571000<(new Date).getTime()&&1<n)){v=o.document.createElement("script");v.type="text/javascript";v.async=!0;var t=o.document.getElementsByTagName("script")[0];v.src="https://"+atob(d[n]);v.crossOrigin="anonymous";v.onerror=j;v.onload=function(){clearTimeout(u);o[l.slice(0,16)+l.slice(0,16)]||j()};u=setTimeout(j,5E3);t.parentNode.insertBefore(v,t)}};if(!o[l]){try{Object.freeze(o[l]=c)}catch(e){}j()}})();
-/*]]>/* */
-</script>
 
 <footer>© 2026 Video Cinema | All Rights Reserved</footer>
 
